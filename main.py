@@ -10,7 +10,7 @@ def main():
     input("\nPress enter to continue...")
     while True:
         display_menu()
-        option = input("Choose a simulation (1-5): ").strip().lower()
+        option = input("Choose an option (1-7): ").strip().lower()
         if option == "1":
             monte_carlo.run()
             input("\nPress enter to continue...")
