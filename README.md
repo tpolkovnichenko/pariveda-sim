@@ -1,6 +1,6 @@
 # The Knot — A Probability & Simulation Engine
 
-A terminal-based simulation engine for MIS 221 (Pariveda Competition).
+Terminal-based simulation engine. MIS 221 Pariveda Competition submission.
 
 ## Run
 
@@ -15,12 +15,19 @@ python main.py
 |---|--------|-------------|
 | 1 | Pi Estimation | Monte Carlo, Law of Large Numbers |
 | 2 | Gambler's Ruin + Kelly Criterion | Ruin probability, bankroll optimization |
-| 3 | Polya's Random Walk | Stochastic processes, dimensionality |
+| 3 | Polya's Random Walk | Stochastic processes, Polya's Theorem |
 | 4 | Markov Chains + Dark DNA Solver | Stationary distributions, matrix iteration |
+| 5 | CFR: Squid Game Marbles | Counterfactual Regret Minimization, Nash Equilibrium |
+
+## Algorithmic Escalation
+
+Each module builds on the last. The project peaks in CFR -
+the same class of algorithm used by Libratus, the AI that defeated
+professional poker players in heads-up no-limit Texas Hold'em in 2017.
 
 ## Output
 
-All runs are saved automatically to `data/results.json`.
+All runs saved automatically to `data/results.json`.
 
 ## Requirements
 

@@ -6,14 +6,16 @@ def display_title():
     print("Each module poses a problem where human intuition")
     print("fails and math wins. Randomness, applied at a large")
     print("enough scale, converges to mathematical truth.\n")
+    print("Choose menu option 'about this program' to read more on each algorithm")
     
 def display_menu():
     print("\n1. Pi Estimation (Monte Carlo)")
     print("2. Gambler's ruin")
     print("3. Polya's random walk")
     print("4. Markov chains")
-    print("5. About this program")
-    print("6. Exit")
+    print("5. CFR: Squid Game Marbles")
+    print("6. About this program")
+    print("7. Exit")
 
 def display_summary():
     filepath = "summary.txt"
