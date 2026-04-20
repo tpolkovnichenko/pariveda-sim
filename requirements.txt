@@ -1,0 +1,2 @@
+# Numpy is used for the Markov Chains module of the project
+numpy

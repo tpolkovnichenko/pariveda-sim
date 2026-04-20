@@ -1,0 +1,77 @@
+Project: The Knot — A Probability & Simulation Engine
+Author:  Tim Polkovnichenko
+Course:  MIS 221 
+
+    WHAT THE PROGRAM DOES
+
+The Knot is a terminal-based simulation engine built around one idea:
+randomness, applied at sufficient scale, converges to mathematical truth.
+Each module poses a problem where human intuition fails and simulation
+reveals the answer. Modules escalate in complexity from Monte Carlo
+estimation to Markov chain analysis of a paradoxical time-travel family tree.
+
+Concepts demonstrated: procedural programming, file handling, algorithmic
+design, dictionaries, lists, numpy matrix operations, probability theory,
+and mathematical modeling through simulation.
+
+    HOW TO RUN
+
+    python main.py
+
+Requirements: Python 3.x, numpy
+Install dependencies: pip install -r requirements.txt
+
+Navigate the menu by entering the number of the simulation you want.
+Each simulation prompts for parameters, runs, and saves output to
+data/results.json automatically.
+
+    SIMULATIONS
+
+1. Pi Estimation (Monte Carlo)
+    Estimates pi by randomly scattering points in a unit square and
+    measuring what fraction land inside the inscribed quarter-circle.
+    Prints convergence toward pi at every 10% milestone.
+    Theoretical value: pi = 3.141592...
+
+2. Gambler's Ruin + Kelly Criterion
+    Simulates a gambler betting $1 per round until broke or reaching
+    a target. Verifies the closed-form ruin probability formula through
+    simulation, then calculates the Kelly Criterion -- the mathematically
+    optimal bet fraction for any edge. Demonstrates why even a 1% house
+    edge makes ruin nearly certain over time.
+
+3. Polya's Random Walk
+    Simulates a random walker in 1D, 2D, and 3D space and measures
+    return-to-origin probability across thousands of walks. Verifies
+    Polya's Theorem: return is guaranteed in 1D and 2D (probability = 1.0)
+    but drops to ~34% in 3D. Includes a live 2D grid visualization of
+    a single walk's trail. This module serves as the conceptual bridge
+    to Markov chains -- a random walk is a Markov process in motion.
+
+4. Markov Chain Simulator + Dark DNA Solver
+    Part 1: Simulates a 5-state Markov chain and demonstrates convergence
+    to a stationary distribution regardless of starting state.
+    Part 2: Models the paradoxical family tree from the German sci-fi
+    series Dark as an inheritance matrix. Characters in Dark travel through
+    time and become their own ancestors, creating closed loops with no
+    origin. By representing each parent-child relationship as a 50/50
+    inheritance and multiplying the matrix by itself 1000 times, the
+    system finds a stable genetic equilibrium -- even though the family
+    tree is logically impossible. The same math underlies Google's PageRank.
+    Note: the Dark ancestry model was originally developed as a personal
+    side project and adapted here.
+
+    RESULTS
+
+All simulation runs are saved to data/results.json with full parameters
+and outputs. This file persists across sessions and accumulates run history.
+
+    CONCEPTS DEMONSTRATED
+
+- Monte Carlo simulation and the law of large numbers
+- Closed-form probability verification via simulation
+- Gambler's ruin and Kelly Criterion (bankroll optimization)
+- Polya's Theorem and dimensionality in random walks
+- Markov chains and stationary distributions
+- Matrix-based genetic inheritance modeling
+- Numpy matrix operations for iterative convergence
