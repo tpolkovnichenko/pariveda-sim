@@ -1,7 +1,7 @@
 import random
 import json
 import os
-from simulations.utilities import save_result
+from simulations.utilities import save_result, get_int, get_float
 
 def run():
     print("\n--- Gambler's Ruin + Kelly Criterion ---")
@@ -9,14 +9,16 @@ def run():
     print("Watch how a tiny house edge changes everything.\n")
 
     # get user inputs
-    start = int(input("Starting amount (e.g. 100): "))
-    target = int(input("Target amount (e.g. 200): "))
-    p = float(input("Win probability per round (fair = 0.5): "))
-    p = max(0.001, min(0.999, p))  # clamp to valid range
+    start = get_int(prompt="Starting amount (e.g. 100): ", default=100,
+                    min_val=1)
+    target = get_int(prompt="Target amount (e.g. 200): ", default=200,
+                     min_val=2)
+    p = get_float(prompt="Win probability per round (fair = 0.5): ", default=0.5,
+                  min_val=0.001, max_val=0.999)
     q = 1 - p
-    iterations = int(input("How many simulations to run? (recommended: 10,000+): "))
-    iterations = min(iterations, 100_000)
-
+    iterations = get_int(prompt="How many simulations to run? (recommended: 10,000+): ", 
+                         default=10_000, min_val=5_000, max_val=100_000)
+    
     ruins = 0
     total_rounds = 0
 

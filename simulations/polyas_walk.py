@@ -1,7 +1,7 @@
 import random
 import json
 import os
-from simulations.utilities import save_result
+from simulations.utilities import save_result, get_int
 
 # theoretical return probabilities by dimension
 THEORETICAL = {
@@ -23,11 +23,8 @@ def run():
     print("In 3D: the walker escapes forever with ~66% probability.")
     print("This is Polya's Theorem -- one of the most surprising results in math.\n")
 
-    simulations = input("How many walks to simulate per dimension? (recommended: 5,000+): ")
-    if not simulations.isdigit():
-        simulations = 5000
-    else:
-        simulations = min(int(simulations), 20_000)
+    simulations = get_int(prompt="How many walks to simulate per dimension? (recommended: 5,000+): ",
+                          default=5_000, min_val=500, max_val=20_000)
 
     print()
 

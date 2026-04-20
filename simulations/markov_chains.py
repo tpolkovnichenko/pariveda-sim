@@ -2,7 +2,7 @@ import random
 import json
 import os
 import numpy as np
-from simulations.utilities import save_result
+from simulations.utilities import save_result, get_int
 
 # Part 1: Simple Markov Chain warm-up
 
@@ -40,8 +40,8 @@ def run_warmup():
     print("Each state has defined probabilities of jumping to any other state.")
     print("We simulate a random walker and track how often it visits each state.\n")
 
-    steps = int(input("How many steps to simulate? (recommended: 50,000+): "))
-    steps = min(steps, 500_000)
+    steps = get_int(prompt="How many steps to simulate? (recommended: 50,000+): ",
+                    default=50_000, min_val=20_000, max_val=500_000)
 
     state = random.choice(STATES)
     counts = {s: 0 for s in STATES}

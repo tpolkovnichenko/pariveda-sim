@@ -1,6 +1,6 @@
 import random
 from collections import defaultdict
-from simulations.utilities import save_result
+from simulations.utilities import save_result, get_int
 
 # Game rules
 
@@ -183,8 +183,8 @@ def run():
     print("Over millions of iterations it converges to the Nash Equilibrium --")
     print("the strategy no opponent can exploit, no matter what they do.\n")
 
-    iterations = int(input("Training iterations (recommended: 200,000): "))
-    iterations = min(iterations, 1_000_000)
+    iterations = get_int(prompt="Training iterations (recommended: 200,000): ",
+                         default=200_000, min_val=50_000, max_val=1_000_000)
 
     hider_sum, guesser_sum = train_nash(iterations)
     print_nash_results(hider_sum, guesser_sum)
@@ -202,7 +202,7 @@ def run():
         ("Hider only bets even amounts", [0,0.2,0,0.2,0,0.2,0,0.2,0,0.2]),
         ("Hider bets small (1-3 only)", [0.34,0.33,0.33]+[0]*7)
     ]
-    
+
     for label, hider_bets in experiments:
         result = train_guesser_vs_fixed_hider(hider_bets, iterations=10_000)
         print_exploitation(label, hider_bets, result)

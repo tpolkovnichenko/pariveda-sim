@@ -2,7 +2,7 @@ import random
 import json
 import os
 import math
-from simulations.utilities import save_result
+from simulations.utilities import save_result, get_int
 
 # actual pi constant to compare
 PI = math.pi
@@ -14,11 +14,8 @@ def run():
 
     # ask the user how many iterations to run
 
-    iterations = input("How many darts to throw? (recommended: 100,000+): ")
-    if not iterations.isdigit():
-        iterations = 100_000
-    else:
-        iterations = min(int(iterations), 10_000_000) # cap iterations to 10 million
+    iterations = get_int(prompt="How many darts to throw? (recommended: 100,000+): ",
+                         default=100_000, min_val=50_000, max_val=10_000_000)
 
     hits = 0
 
