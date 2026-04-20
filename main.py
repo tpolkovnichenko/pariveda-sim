@@ -2,7 +2,7 @@ import simulations.monte_carlo as monte_carlo
 import simulations.gamblers_ruin as gamblers_ruin
 import simulations.polyas_walk as polyas_walk
 import simulations.markov_chains as markov_chains
-from display import display_title, display_menu
+from display import display_title, display_menu, display_summary
 
 def main():
     display_title()
@@ -22,7 +22,9 @@ def main():
         elif option == "4":
             markov_chains.run()
             input("Press enter to continue...")
-        elif option in ("5", "exit", "quit", "q"):
+        elif option == "5":
+            display_summary()
+        elif option in ("6", "exit", "quit", "q"):
             print("\nExiting The Knot. Goodbye.\n")
             break
         else:

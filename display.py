@@ -1,3 +1,5 @@
+import os
+
 def display_title():
     print(f"{'THE KNOT':>20}")
     print("A Probability and Simulation Engine\n")
@@ -10,4 +12,16 @@ def display_menu():
     print("2. Gambler's ruin")
     print("3. Polya's random walk")
     print("4. Markov chains")
-    print("5. Exit")
+    print("5. About this program")
+    print("6. Exit")
+
+def display_summary():
+    filepath = "summary.txt"
+    print("\n" + "-"*30)
+    if os.path.exists(filepath):
+        with open(filepath, "r") as f:
+            print(f.read())
+    else:
+        print("summary.txt not found.")
+    print("\n" + "-"*30)
+    input("\nPress enter to return to menu...")
