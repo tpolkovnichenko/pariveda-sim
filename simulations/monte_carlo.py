@@ -2,6 +2,7 @@ import random
 import json
 import os
 import math
+from simulations.utilities import save_result
 
 # actual pi constant to compare
 PI = math.pi
@@ -55,24 +56,3 @@ def run():
         "actual_pi": PI,
         "error_percent": round(abs(pi_estimate - PI) / PI * 100, 4)
     })
-
-
-def save_result(sim_name, result_dict):
-    # load existing results if the file exists
-    filepath = "data/results.json"
-    if os.path.exists(filepath):
-        with open(filepath, "r") as f:
-            all_results = json.load(f)
-    else:
-        all_results = {}
-
-    # add this result under the simulation name
-    if sim_name not in all_results:
-        all_results[sim_name] = []
-    all_results[sim_name].append(result_dict)
-
-    # write back to file
-    with open(filepath, "w") as f:
-        json.dump(all_results, f, indent=2)
-
-    print(f"\nResult saved to {filepath}")
