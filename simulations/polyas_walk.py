@@ -16,7 +16,7 @@ STEP_LIMITS = {
     "3D": 5_000    # escapes fast, 10k is fine
 }
 
-# Bounds for the grid size
+# bounds for the grid size
 HIGH_BOUND = 1_000_000
 LOW_BOUND = -HIGH_BOUND
 
