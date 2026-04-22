@@ -95,10 +95,10 @@ def simulate_walk(dim, step_limit):
     moves_3d = [(1,0,0), (-1,0,0), (0,1,0), (0,-1,0), (0,0,1), (0,0,-1)]
 
     if dim == "1D":
-        position = 0
+        x = 0
         for step in range(1, step_limit + 1):
-            position += random.choice(moves_1d)
-            if position == 0:
+            x += random.choice(moves_1d)
+            if x == 0:
                 return (True, step)
 
     elif dim == "2D":
