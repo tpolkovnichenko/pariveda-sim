@@ -16,6 +16,10 @@ STEP_LIMITS = {
     "3D": 5_000    # escapes fast, 10k is fine
 }
 
+# Bounds for the grid size
+HIGH_BOUND = 1_000_000
+LOW_BOUND = -HIGH_BOUND
+
 def run():
     print("\n--- Polya's Random Walk ---")
     print("A walker takes random steps from the origin. Will they ever return home?")
@@ -98,6 +102,7 @@ def simulate_walk(dim, step_limit):
         x = 0
         for step in range(1, step_limit + 1):
             x += random.choice(moves_1d)
+            x = max(LOW_BOUND, min(x, HIGH_BOUND))
             if x == 0:
                 return (True, step)
 
@@ -107,6 +112,8 @@ def simulate_walk(dim, step_limit):
             move = random.choice(moves_2d)
             x += move[0]
             y += move[1]
+            x = max(LOW_BOUND, min(x, HIGH_BOUND))
+            y = max(LOW_BOUND, min(y, HIGH_BOUND))
             if x == 0 and y == 0:
                 return (True, step)
 
@@ -117,6 +124,9 @@ def simulate_walk(dim, step_limit):
             x += move[0]
             y += move[1]
             z += move[2]
+            x = max(LOW_BOUND, min(x, HIGH_BOUND))
+            y = max(LOW_BOUND, min(y, HIGH_BOUND))
+            z = max(LOW_BOUND, min(z, HIGH_BOUND))
             if x == 0 and y == 0 and z == 0:
                 return (True, step)
 
